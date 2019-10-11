@@ -1,0 +1,10 @@
+black ; python_version == '3.7.*'
+docutils
+flake8
+flake8-bugbear
+isort
+multilint
+pygments
+pytest
+pytest-cov
+twine
