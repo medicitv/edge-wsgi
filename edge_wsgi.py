@@ -1,8 +1,11 @@
 import sys
 import json
+import logging
 from base64 import b64decode, b64encode
 from io import BytesIO
 from urllib.parse import urlencode
+
+LOGGER = logging.getLogger("edge-wsgi")
 
 __author__ = "Antoine Monnt"
 __email__ = "amonnet@medici.tv"
@@ -22,6 +25,8 @@ def make_lambda_handler(viewer_request_app=None, viewer_response_app=None, origi
         environ = get_environ(event, binary_support=binary_support)
         response = Response(binary_support=binary_support)
 
+        LOGGER.debug('handler event', event)
+
         wsgi_app = None
         if environ["edge_wsgi.event_type"] == "viewer-request":
             wsgi_app = viewer_request_app
@@ -37,7 +42,11 @@ def make_lambda_handler(viewer_request_app=None, viewer_response_app=None, origi
 
         result = wsgi_app(environ, response.start_response)
         response.consume(result)
-        return response.as_edge_response()
+        response = response.as_edge_response()
+
+        LOGGER.debug('handler response', response)
+
+        return response
 
     return handler
 
