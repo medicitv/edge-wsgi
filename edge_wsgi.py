@@ -62,13 +62,12 @@ def get_environ(event, binary_support):
         body = b64decode(body)
     else:
         body = body.encode("utf-8")
-    params = request.get("querystring") or {}
 
     environ = {
         "CONTENT_LENGTH": str(len(body)),
         "HTTP": "on",
         "PATH_INFO": request["uri"],
-        "QUERY_STRING": urlencode(params),
+        "QUERY_STRING": request.get("querystring", ""),
         "REMOTE_ADDR": request["clientIp"],
         "REQUEST_METHOD": method,
         "SCRIPT_NAME": "",
