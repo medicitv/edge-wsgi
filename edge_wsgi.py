@@ -3,19 +3,19 @@ import json
 import logging
 from base64 import b64decode, b64encode
 from io import BytesIO
-from urllib.parse import urlencode
 
 LOGGER = logging.getLogger("edge-wsgi")
-
-__author__ = "Antoine Monnt"
-__email__ = "amonnet@medici.tv"
-__version__ = "1.0.0"
 
 __all__ = ("make_lambda_handler",)
 
 CONTENT_TYPE = "application/vnd.edge-wsgi+json"
 
-def make_lambda_handler(viewer_request_app=None, viewer_response_app=None, origin_request_app=None, origin_response_app=None, binary_support=False):
+
+def make_lambda_handler(viewer_request_app=None,
+                        viewer_response_app=None,
+                        origin_request_app=None,
+                        origin_response_app=None,
+                        binary_support=False):
     """
     Turn a WSGI app callable into a Lambda handler function suitable for
     running on API Gateway.
@@ -134,7 +134,8 @@ class Response(object):
         if "content-type" in headers and headers["content-type"][0]["value"] == CONTENT_TYPE:
             return json.loads(self.body().getvalue())
 
-        response = {"status": self.status_code, "statusDescription": self.reason}
+        response = {"status": self.status_code,
+                    "statusDescription": self.reason}
         response["headers"] = headers
 
         if len(self.body.getvalue()):

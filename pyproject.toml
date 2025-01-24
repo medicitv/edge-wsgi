@@ -1,0 +1,27 @@
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "edge-wsgi"
+version = "1.0.1"
+description = "Wrap a WSGI application in an AWS Lambda@edge handler function for Cloudfront"
+authors = [
+    {name = "Antoine Monnet", email = "amonnet@medici.tv"},
+    {name = "Victor Pongnian", email = "vpongnian@medici.tv"}
+]
+readme = "README.rst"
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.8",
+]
+
+[project.urls]
+Homepage = "https://github.com/medicitv/edge-wsgi"
+Changelog = "https://github.com/medicitv/edge-wsgi/HISTORY.rst"
+
+[project.optional-dependencies]
+test = ["pytest"]

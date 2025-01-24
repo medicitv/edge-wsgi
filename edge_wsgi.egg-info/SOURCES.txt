@@ -1,0 +1,10 @@
+HISTORY.rst
+LICENSE
+MANIFEST.in
+README.rst
+pyproject.toml
+edge_wsgi.egg-info/PKG-INFO
+edge_wsgi.egg-info/SOURCES.txt
+edge_wsgi.egg-info/dependency_links.txt
+edge_wsgi.egg-info/requires.txt
+edge_wsgi.egg-info/top_level.txt
