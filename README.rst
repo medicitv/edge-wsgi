@@ -25,7 +25,7 @@ Use **pip**:
 
     pip install edge-wsgi
 
-Python 3.5-3.7 supported.
+Python 3.8 or later supported.
 
 Usage
 =====

@@ -25,3 +25,6 @@ Changelog = "https://github.com/medicitv/edge-wsgi/HISTORY.rst"
 
 [project.optional-dependencies]
 test = ["pytest"]
+
+[tool.setuptools.packages.find]
+exclude = ["tests*"]

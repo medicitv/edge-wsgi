@@ -2,9 +2,11 @@ HISTORY.rst
 LICENSE
 MANIFEST.in
 README.rst
+edge_wsgi.py
 pyproject.toml
 edge_wsgi.egg-info/PKG-INFO
 edge_wsgi.egg-info/SOURCES.txt
 edge_wsgi.egg-info/dependency_links.txt
 edge_wsgi.egg-info/requires.txt
 edge_wsgi.egg-info/top_level.txt
+tests/test_edge_wsgi.py
